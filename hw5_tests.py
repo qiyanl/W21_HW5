@@ -107,7 +107,7 @@ class TestCard(unittest.TestCase):
 
         '''
         d5 = hw5_cards.Deck()
-        isinstance(d5.deal_card(),hw5_cards.Card)
+        self.assertIsInstance(d5.deal_card(),hw5_cards.Card)
         return (d5.deal_card(),hw5_cards.Card)
     
     def test_q6(self):
@@ -148,8 +148,8 @@ class TestCard(unittest.TestCase):
         d7_len2 = len(d7.cards)
         d7.replace_card(d7)
         d7_len3 = len(d7.cards)
-        self.assertEqual(d7_len1,d7_len3,52)
-        return (d7_len1,d7_len3,52)
+        self.assertEqual(d7_len1,d7_len3,d7_len2+1)
+        return (d7_len1,d7_len3,d7_len2+1)
     
     def test_q8(self):
         '''
@@ -165,7 +165,7 @@ class TestCard(unittest.TestCase):
 
         '''
         d8 = hw5_cards.Deck()
-        card = hw5_cards.Card()
+        card = d8.cards[-1]
         d8.replace_card(card)
         d8_len = len(d8.cards)
         self.assertEqual(len(d8.cards),52)
